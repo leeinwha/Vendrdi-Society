@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*font-smoothing: antialiased;*/
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  cursor: default;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+fieldset {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(13px, 1.11vw, 21px);
+  font-weight: 300;
+  line-height: 1.3;
+  color: #001713;
+  height: 100%;
+  overflow: hidden;
+}
+
+[data-theme=green] {
+  background-color: #002921;
+  color: #f7f7f7;
+}
+
+[data-theme=yellow] {
+  background-color: #f0ff3d;
+  color: #002921;
+}
+
+[data-theme=white] {
+  background-color: #f7f7f7;
+  color: #001713;
+}
+
+[data-theme=dark] {
+  background-color: #001713;
+  color: #f7f7f7;
+}
+
+[data-theme=greenCard] {
+  background-color: #003d31;
+  color: #f7f7f7;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  margin: -1px;
+}
+
+header {
+  position: fixed;
+  top: 1.4vw;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+}
