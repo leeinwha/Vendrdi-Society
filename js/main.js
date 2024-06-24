@@ -71,3 +71,221 @@ brandTxtTl
   .to(".sc-brand .fixed-1 .t-2 span:nth-child(3)",
   { xPercent: -30, ease: "power3.inOut" },"a")
 ;
+
+
+
+
+
+const digitalTxt = new SplitType(".sc-digital .desc", {
+  types: "words, chars",
+});
+
+const digitalTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-digital .fixed",
+    start: "0% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    pin: true,
+    // markers: true,
+    onEnter: function () {
+      document.querySelector(".header .btn-menu").classList.remove("invert");
+    },
+    onLeave: function () {
+      document.querySelector(".header .logo").classList.remove("invert");
+      document.querySelector(".sc-brand .col-2").classList.add("out");
+    },
+    onEnterBack: function () {
+      document.querySelector(".header .logo").classList.add("invert");
+      document.querySelector(".sc-brand .col-2").classList.remove("out");
+    },
+    onLeaveBack: function () {
+      document.querySelector(".header .btn-menu").classList.add("invert");
+    },
+  },
+  ease: "none",
+});
+digitalTl.to(".sc-digital .fixed", { x: 0 });
+
+const digitalTxtTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-digital .fixed",
+    start: "5% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+digitalTxtTl.to(".sc-digital .desc .char", { opacity: 1, stagger: 0.2 });
+
+
+
+
+
+const garderTxt = new SplitType(".sc-garder .txt", {
+  types: "chars",
+});
+document.querySelectorAll(".sc-garder .txt .char").forEach((item, index) => {
+  const windowX = window.innerWidth;
+  const translateX = windowX * (index + 1);
+  const rotate = 25 * (index + 1);
+  gsap.set(item, {
+    x: `${translateX}`,
+    rotation: `${rotate}`
+  });
+});
+const garderTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-garder .fixed",
+    start: "-85% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+garderTl
+  .from(".sc-garder .bg", { yPercent: -70, rotation: 40, duration:.5 }, "a")
+  .to(".sc-garder .txt .char", { x: 0, rotation: 0, stagger: 0.01 }, "a")
+;
+const garderTxtTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-garder .fixed",
+    start: "0% 0%",
+    end: "400% 100%",
+    scrub: 0,
+    pin: true,
+    // markers: true,
+  },
+  ease: "none",
+});
+garderTxtTl
+  .to(".sc-garder .txt .char", { color: "#002921", duration: 0.01, }, "b")
+  .to(".sc-garder .bg svg", { fill: "#f0ff3d", duration: 0.01 }, "b")
+  .to(".sc-garder .bg svg path",{ stroke: "#f0ff3d", opacity: 1, duration: 0.01,},"b")
+  .to(".sc-garder .bg", { scale: 3, rotation: -180 }, "c")
+  .to(".sc-garder .txt", { scale: 1.5 }, "c")
+  .to(".sc-garder .txt .char", { visibility: "hidden", stagger: 0.1 })
+;
+
+
+
+
+const introTxt = new SplitType(".sc-intro .txt", {
+  types: "lines, words",
+});
+
+ScrollTrigger.create({
+  trigger: ".sc-intro",
+  start: "-50% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .logo").classList.add("invert");
+    document.querySelector(".header .btn-menu").classList.add("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .logo").classList.remove("invert");
+    document.querySelector(".header .btn-menu").classList.remove("invert");
+  },
+});
+
+const introTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-intro",
+    start: "0% 50%",
+    end: "70% 100%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+introTl.from(".sc-intro .txt .word",{ yPercent: 100, stagger: 0.05 });
+
+
+
+
+
+
+
+const pushBtnTxt1 = new SplitType(".sc-push .btn-pop-1 .letter", {
+  types: "chars",
+});
+const pushBtnTxt2 = new SplitType(".sc-push .btn-pop-2 .letter", {
+  types: "chars",
+});
+
+ScrollTrigger.create({
+  trigger: ".sc-push",
+  start: "0% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .logo").classList.remove("invert");
+    document.querySelector(".header .btn-menu").classList.remove("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .logo").classList.add("invert");
+    document.querySelector(".header .btn-menu").classList.add("invert");
+  },
+});
+
+const pushTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-push",
+    start: "0% 100%",
+    end: "100% 0%",
+    scrub: 0,
+    pin: ".sc-push .bg",
+    // markers: true,
+  },
+  ease: "none",
+});
+pushTl
+  .to(".sc-push .bg .line1",{ xPercent: -10, yPercent: -110, rotation: -30 },"a")
+  .to(".sc-push .bg .line2",{ xPercent: 20, yPercent: -120, rotation: 50 },"a")
+  .to(".sc-push .bg .line3",{ xPercent: 10, yPercent: -180, rotation: 40 },"a"
+);
+
+const pushBtnTl1 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-push .btn-pop-1",
+    start: "0% 100%",
+    end: "100% 0%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+document.querySelectorAll(".sc-push .btn-pop-1 .letter .char")
+  .forEach((item, index) => {
+    pushBtnTl1.fromTo(item,
+      { yPercent: (index + 1) * 20, rotation: (index + 1) * 10 },
+      { yPercent: (index + 1) * -20, rotation: (index + 1) * -10 },
+      "a"
+    );
+  })
+;
+
+const pushBtnTl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-push .btn-pop-2",
+    start: "0% 100%",
+    end: "100% 0%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+document.querySelectorAll(".sc-push .btn-pop-2 .letter .char")
+  .forEach((item, index) => {
+    pushBtnTl2.fromTo(item,
+      { yPercent: (4 - index) * 20, rotation: (4 - index) * -10 },
+      { yPercent: (4 - index) * -20, rotation: (4 - index) * 10 },
+      "a"
+    );
+  })
+;
