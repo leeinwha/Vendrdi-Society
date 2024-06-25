@@ -687,3 +687,193 @@ header {
 .sc-push .btn-pop-2 .letter .char:nth-of-type(4) {
   z-index: 1;
 }
+
+.sc-invert .top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+.sc-invert .top .desc {
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Cormorant Infant", serif;
+  font-size: clamp(40px, 4.9vw, 93px);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+}
+.sc-invert .bottom .inner {
+  display: flex;
+  height: 400vh;
+  clip-path: inset(0);
+}
+.sc-invert .bottom .seq {
+  position: sticky;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+}
+.sc-invert .bottom .seq .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+.sc-invert .bottom .seq .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sc-invert .bottom .seq .image.show {
+  visibility: visible;
+}
+.sc-invert .bottom .fixed {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  margin: -100vh 0 0;
+}
+.sc-invert .bottom .fixed .txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0 2vw 0 7.4vw;
+  transition: 0.2s;
+  opacity: 0;
+}
+.sc-invert .bottom .fixed .txt.show {
+  opacity: 1;
+}
+.sc-invert .bottom .fixed .sub {
+  max-width: 16.24vw;
+  font-size: clamp(17px, 1.25vw, 24px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.sc-invert .bottom .fixed .tit {
+  margin: 80px 0;
+  font-family: "Cormorant Infant", serif;
+  font-size: clamp(35px, 3.125vw, 60px);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.sc-invert .bottom .fixed .desc {
+  font-size: clamp(18px, 1.25vw, 24px);
+  padding: 0 7vw 0 10vw;
+}
+
+.sc-attend {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.sc-attend .inner {
+  position: relative;
+  overflow: hidden;
+}
+.sc-attend .box {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.sc-attend .box .maquee {
+  display: flex;
+  width: max-content;
+  animation: maqueeSlide 20s infinite linear;
+}
+.sc-attend .box .maquee li {
+  font-size: clamp(69px, 9vw, 173px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 50px;
+}
+.sc-attend .box .maquee li .serif {
+  font-family: "Cormorant Infant", serif;
+  font-weight: 300;
+}
+.sc-attend .box:nth-of-type(2) {
+  position: absolute;
+  bottom: 94%;
+  right: 0;
+}
+.sc-attend .box:nth-of-type(2) .maquee {
+  animation: maqueeSlide2 20s infinite linear;
+}
+.sc-attend .desc {
+  font-size: clamp(9px, 1.1vw, 21px);
+  font-weight: 400;
+  line-height: 1.56;
+  color: #f0ff3d;
+  text-align: center;
+  margin: 108px 0 0;
+}
+
+@keyframes maqueeSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(30%);
+  }
+}
+@keyframes maqueeSlide2 {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.sc-desole {
+  padding: 150px 0;
+  height: 100vh;
+}
+.sc-desole .inner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 96vw;
+  padding: 0 0 0 10vw;
+  height: 100%;
+}
+.sc-desole h2 {
+  font-family: "Cormorant Infant", serif;
+  font-size: clamp(40px, 4.9vw, 93px);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+  width: 39vw;
+}
+.sc-desole .box {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 32.5vw;
+  height: 100%;
+  padding: 0 0 0 8vw;
+}
+.sc-desole .box .arrow {
+  position: absolute;
+  top: calc(50% - 8vw);
+  left: calc(50% + 50px);
+}
+.sc-desole .box .desc {
+  text-transform: uppercase;
+  text-indent: 5.3vw;
+}

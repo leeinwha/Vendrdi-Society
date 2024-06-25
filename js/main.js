@@ -289,3 +289,129 @@ document.querySelectorAll(".sc-push .btn-pop-2 .letter .char")
     );
   })
 ;
+
+
+
+
+
+
+
+ScrollTrigger.create({
+  trigger: ".sc-invert .top",
+  start: "0% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .logo").classList.add("invert");
+    document.querySelector(".header .btn-menu").classList.add("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .logo").classList.remove("invert");
+    document.querySelector(".header .btn-menu").classList.remove("invert");
+  },
+});
+
+ScrollTrigger.create({
+  trigger: ".sc-invert .bottom",
+  start: "0% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .logo").classList.remove("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .logo").classList.add("invert");
+  },
+});
+
+const invertTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-invert .bottom",
+    start: "0% 100%",
+    end: "100% 0%",
+    // markers: true,
+    scrub: true,
+    pin: ".sc-invert .bottom .fixed",
+    onUpdate: (self) => {
+      // 좌측 이미지
+      const imgLength = document.querySelectorAll(".sc-invert .bottom .image").length;
+      const imgIndex = Math.round(self.progress * (imgLength - 1));
+      const currentImage = document.querySelector(".sc-invert .bottom .image.show");
+      const newImage = document.querySelectorAll(".sc-invert .bottom .image")[imgIndex];
+
+      // 우측 텍스트
+      const txtIndex = Math.round(self.progress * 2);
+      const currentTxt = document.querySelector(".sc-invert .bottom .fixed .txt.show");
+      const newTxt = document.querySelectorAll(".sc-invert .bottom .fixed .txt")[txtIndex];
+
+      if (currentImage) {
+        currentImage.classList.remove("show");
+      }
+      if (newImage) {
+        newImage.classList.add("show");
+      }
+      if (currentTxt) {
+        currentTxt.classList.remove("show");
+      }
+      if (newTxt) {
+        newTxt.classList.add("show");
+      }
+    },
+  },
+  ease: "none",
+});
+
+
+
+
+
+
+
+
+ScrollTrigger.create({
+  trigger: ".sc-attend",
+  start: "0% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .btn-menu").classList.remove("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .btn-menu").classList.add("invert");
+  },
+});
+const attendTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-attend",
+    start: "0% 20%",
+    end: "100% 100%",
+    scrub: 0,
+    // markers: true,
+  },
+  ease: "none",
+});
+attendTl.to(".sc-attend .box", { yPercent: 100 });
+
+
+
+
+
+
+ScrollTrigger.create({
+  trigger: ".sc-desole",
+  start: "0% 0%",
+  end: "100% 100%",
+  // markers: true,
+  ease: "none",
+  onEnter: function () {
+    document.querySelector(".header .logo").classList.add("invert");
+    document.querySelector(".header .btn-menu").classList.add("invert");
+  },
+  onLeaveBack: function () {
+    document.querySelector(".header .logo").classList.remove("invert");
+    document.querySelector(".header .btn-menu").classList.remove("invert");
+  },
+});
